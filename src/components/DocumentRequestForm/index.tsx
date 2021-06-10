@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import InputMask from 'react-input-mask';
 import { DocumentRequest } from '../../types';
 import { RequestContainer } from './styles';
 
@@ -54,7 +55,9 @@ const DocumentRequestForm: React.FC = () => {
           <label htmlFor="cpf">
             CPF: <span>*</span>
           </label>
-          <input
+          <InputMask
+            mask="999.999.999-99"
+            pattern="^[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}$"
             type="text"
             id="cpf"
             placeholder="Digite aqui"
@@ -90,7 +93,9 @@ const DocumentRequestForm: React.FC = () => {
           <label htmlFor="cep">
             CEP: <span>*</span>
           </label>
-          <input
+          <InputMask
+            mask="99999-999"
+            pattern="^[0-9]{5}-[0-9]{3}$"
             type="text"
             id="cep"
             placeholder="Digite aqui"
