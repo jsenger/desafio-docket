@@ -6,10 +6,10 @@ export const MainContainer = styled.main`
 
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.3rem;
 
   h1 {
-    margin: 2rem 0;
+    margin: 2rem 0 0.7rem;
   }
 
   section {
