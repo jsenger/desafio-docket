@@ -49,7 +49,7 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--black-100);
   }
 
-  body, input, textarea, button {
+  body, input, textarea, button, select {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
   }

@@ -5,8 +5,8 @@ export const MainContainer = styled.main`
   padding: 0 2rem 3.3rem;
 
   display: grid;
-  grid-template-columns: 50% 50%;
-  gap: 1.3rem;
+  grid-template-columns: repeat(2, calc(50% - 0.65rem));
+  grid-gap: 1.3rem;
 
   h1 {
     margin: 2rem 0 0.7rem;
@@ -19,14 +19,14 @@ export const MainContainer = styled.main`
   }
 
   section {
-    padding: 2rem;
     background-color: var(--white);
 
     border-radius: 4px;
     box-shadow: 0 1px 2px var(--black-100-transparency);
 
-    h2 {
-      margin-bottom: 2rem;
+    header {
+      border-bottom: 1.5px solid var(--cold-grey-40);
+      padding: 1rem 2rem;
     }
   }
 `;

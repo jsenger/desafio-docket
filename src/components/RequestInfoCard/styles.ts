@@ -5,9 +5,13 @@ export const InfoContainer = styled.section`
   grid-column-end: 3;
 
   width: 100%;
+  padding: 2rem;
+
+  h2 {
+    margin-bottom: 2rem;
+  }
 
   p {
-
     &:first-of-type {
       margin-bottom: 1rem;
     }
