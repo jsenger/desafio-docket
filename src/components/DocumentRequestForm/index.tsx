@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import InputMask from 'react-input-mask';
 import { DocumentRequest } from '../../types';
 import { RequestContainer } from './styles';
@@ -8,7 +8,9 @@ const DocumentRequestForm: React.FC = () => {
     {} as DocumentRequest
   );
 
-  documentRequest.typeOfPerson = "Pessoa física";
+  useEffect(() => {
+    documentRequest.typeOfPerson = 'Pessoa fisica';
+  }, []);
 
   return (
     <RequestContainer>
@@ -46,21 +48,31 @@ const DocumentRequestForm: React.FC = () => {
               })
             }
           >
-            <option value="Pessoa física">Pessoa física</option>
-            <option value="Pessoa jurídica">Pessoa jurídica</option>
+            <option value="Pessoa fisica">Pessoa física</option>
+            <option value="Pessoa juridica">Pessoa jurídica</option>
           </select>
         </div>
 
         <div className="form-group">
           <label htmlFor="cpf">
-            CPF: <span>*</span>
+            {documentRequest.typeOfPerson === 'Pessoa fisica' ? 'CPF' : 'CNPJ'}:
+            <span>*</span>
           </label>
           <InputMask
-            mask="999.999.999-99"
-            pattern="^[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}$"
+            mask={
+              documentRequest.typeOfPerson === 'Pessoa fisica'
+                ? '999.999.999-99'
+                : '99.999.999/9999-99'
+            }
+            pattern={
+              documentRequest.typeOfPerson === 'Pessoa fisica'
+                ? '^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$'
+                : '^[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}$'
+            }
             type="text"
             id="cpf"
             placeholder="Digite aqui"
+            required
             onChange={e =>
               setDocumentRequest({
                 ...documentRequest,
