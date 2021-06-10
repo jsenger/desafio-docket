@@ -4,12 +4,18 @@ export const MainContainer = styled.main`
   background: var(--grey-10) 0% 0% no-repeat padding-box;
   padding: 0 2rem 3.3rem;
 
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 50% 50%;
   gap: 1.3rem;
 
   h1 {
     margin: 2rem 0 0.7rem;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  h2 {
+    font-size: 1.3rem;
   }
 
   section {
