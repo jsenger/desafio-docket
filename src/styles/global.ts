@@ -2,6 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
+    --purple: #6b4ea5;
+
+    /* Adobe XD */
     --yellow: #FFAF3E;
     --cold-grey-40: #C4C8CC;
     --red-medium: #F27480;
