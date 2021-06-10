@@ -1,10 +1,10 @@
-import { Nav } from './styles';
+import { NavbarContainer } from './styles';
 
 const Navbar: React.FC = () => {
   return (
-    <Nav>
+    <NavbarContainer>
       <img src="/img/logo-branco.png" alt="Logo Docket" height={40} />
-    </Nav>
+    </NavbarContainer>
   );
 };
 
