@@ -5,6 +5,8 @@ export const GlobalStyle = createGlobalStyle`
     --purple-40: #6B4EA5;
     --purple-60: #5A5789;
     --purple-80:  #2D2C45;
+    --grey-10: #F3F3F3;
+    --black-100-transparency: #2e2d2c66;
 
     /* Adobe XD */
     --yellow: #FFAF3E;
@@ -52,7 +54,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6, strong {
-    font-weight: 600;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    width: 100%;
   }
 
   button {
