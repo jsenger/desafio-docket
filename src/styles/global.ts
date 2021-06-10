@@ -46,6 +46,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: var(--background);
     -webkit-font-smoothing: antialiased;
+    color: var(--black-100);
   }
 
   body, input, textarea, button {
@@ -53,11 +54,12 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
   }
 
-  h1, h2, h3, h4, h5, h6, strong {
-    font-weight: 700;
+  h2, h3, h4, h5, h6 {
+    font-weight: 600;
   }
 
   h1 {
+    font-weight: 700;
     font-size: 1.6rem;
     width: 100%;
   }
