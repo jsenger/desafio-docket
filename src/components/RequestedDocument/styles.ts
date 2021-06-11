@@ -17,7 +17,8 @@ export const RequestsContainer = styled.div`
   }
 
   header button {
-    border: none;color: var(--blue);
+    border: none;
+    color: var(--blue);
     font-size: 1.3rem;
     float: right;
   }
@@ -39,9 +40,22 @@ export const RequestsContainer = styled.div`
 
     p {
       margin-bottom: 0.5rem;
+    }
 
-      & > span {
-        margin-left: 2rem;
+    .info-group {
+      display: flex;
+      flex-wrap: wrap;
+
+      p {
+        width: fit-content;
+        
+        &:first-child {
+          margin-right: 2rem;
+
+          @media(max-width: 700px) {
+            margin-right: 0;
+          }
+        }
       }
     }
 

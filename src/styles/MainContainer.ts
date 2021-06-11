@@ -35,6 +35,11 @@ export const MainContainer = styled.main`
       & > h2 {
         margin-bottom: 1rem;
       }
+      
+      @media (max-width: 700px) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
     }
 
     &.no-document {

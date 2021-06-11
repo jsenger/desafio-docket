@@ -88,4 +88,9 @@ export const RequestContainer = styled.section`
       padding: 0.5rem 1rem;
     }
   }
+
+  @media (max-width: 700px) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
 `;

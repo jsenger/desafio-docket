@@ -52,14 +52,14 @@ const RequestedDocument = ({
               : 'CNPJ'}
             : {requestedDocument.cep}
           </p>
-          <p>
-            Rua: {requestedDocument.street}{' '}
-            <span>N°: {requestedDocument.number}</span>
-          </p>
-          <p>
-            Cidade: {requestedDocument.city}{' '}
-            <span>UF: {requestedDocument.state}</span>
-          </p>
+          <div className="info-group">
+            <p>Rua: {requestedDocument.street} </p>
+            <p>N°: {requestedDocument.number}</p>
+          </div>
+          <div className="info-group">
+            <p>Cidade: {requestedDocument.city} </p>
+            <p>UF: {requestedDocument.state}</p>
+          </div>
         </div>
       </div>
 
