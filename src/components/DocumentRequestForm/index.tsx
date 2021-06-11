@@ -16,7 +16,7 @@ const DocumentRequestForm: React.FC = () => {
         initialValues={{
           id: 0,
           documentName: '',
-          typeOfPerson: 'Pessoa fisica',
+          typeOfPerson: 'Pessoa física',
           cpf: '',
           fullName: '',
           cep: '',
@@ -24,6 +24,7 @@ const DocumentRequestForm: React.FC = () => {
           number: '',
           city: '',
           state: '',
+          createdAt: new Date(),
         }}
         validate={values => {
           const errors: FormikErrors<DocumentRequest> = {};
@@ -34,12 +35,12 @@ const DocumentRequestForm: React.FC = () => {
 
           if (!values.cpf) errors.cpf = 'Campo obrigatório';
           else if (
-            values.typeOfPerson === 'Pessoa fisica' &&
+            values.typeOfPerson === 'Pessoa física' &&
             !/^[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}$/.test(values.cpf)
           )
             errors.cpf = 'CPF inválido';
           else if (
-            values.typeOfPerson === 'Pessoa juridica' &&
+            values.typeOfPerson === 'Pessoa jurídica' &&
             !/^[0-9]{2}\.[0-9]{3}\.[0-9]{3}\/[0-9]{4}-[0-9]{2}$/.test(
               values.cpf
             )
@@ -113,8 +114,8 @@ const DocumentRequestForm: React.FC = () => {
                     : null
                 }
               >
-                <option value="Pessoa fisica">Pessoa física</option>
-                <option value="Pessoa juridica">Pessoa jurídica</option>
+                <option value="Pessoa física">Pessoa física</option>
+                <option value="Pessoa jurídica">Pessoa jurídica</option>
               </Field>
               {errors.typeOfPerson && touched.typeOfPerson ? (
                 <small>{errors.typeOfPerson}</small>
@@ -123,7 +124,7 @@ const DocumentRequestForm: React.FC = () => {
 
             <div className="form-group">
               <label htmlFor="cpf">
-                {values.typeOfPerson === 'Pessoa fisica' ? 'CPF' : 'CNPJ'}:
+                {values.typeOfPerson === 'Pessoa física' ? 'CPF' : 'CNPJ'}:
                 <span>*</span>
               </label>
               <Field
@@ -134,7 +135,7 @@ const DocumentRequestForm: React.FC = () => {
                   <InputMask
                     {...field}
                     mask={
-                      values.typeOfPerson === 'Pessoa fisica'
+                      values.typeOfPerson === 'Pessoa física'
                         ? '999.999.999-99'
                         : '99.999.999/9999-99'
                     }

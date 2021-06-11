@@ -9,4 +9,5 @@ export interface DocumentRequest {
   number: string;
   city: string;
   state: string;
+  createdAt: Date;
 }
