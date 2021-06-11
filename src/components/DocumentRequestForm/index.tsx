@@ -1,12 +1,17 @@
-import { FormEvent, useEffect, useState } from 'react';
 import InputMask from 'react-input-mask';
-import { Formik, Form, Field, ErrorMessage, FormikErrors } from 'formik';
+import { Formik, Form, Field, FormikErrors } from 'formik';
 
 import { DocumentRequest } from '../../types';
 import { RequestContainer } from './styles';
 import { api } from '../../services/api';
 
-const DocumentRequestForm: React.FC = () => {
+interface DocumentRequestFormProps {
+  getRequestedDocuments: () => void;
+}
+
+const DocumentRequestForm = ({
+  getRequestedDocuments,
+}: DocumentRequestFormProps) => {
   return (
     <RequestContainer>
       <header>
@@ -71,6 +76,7 @@ const DocumentRequestForm: React.FC = () => {
             .then(() => {
               alert('Documento criado com sucesso');
               resetForm();
+              getRequestedDocuments();
             })
             .catch(err => alert('Erro de conexão, tente novamente'))
             .finally(() => setSubmitting(false));

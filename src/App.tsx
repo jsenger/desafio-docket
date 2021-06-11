@@ -41,7 +41,7 @@ function App() {
       <MainContainer>
         <h1>Pedido #1</h1>
         <RequestInfoCard />
-        <DocumentRequestForm />
+        <DocumentRequestForm getRequestedDocuments={getRequestedDocuments} />
         {isLoading ? (
           'Carregando...'
         ) : (
