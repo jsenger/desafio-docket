@@ -41,7 +41,12 @@ const RequestedDocument = ({
 
         <div>
           <h4>Dados do cartório</h4>
-          <p>CEP: {requestedDocument.cep}</p>
+          <p>
+            {requestedDocument.typeOfPerson === 'Pessoa física'
+              ? 'CPF'
+              : 'CNPJ'}
+            : {requestedDocument.cep}
+          </p>
           <p>
             Rua: {requestedDocument.street}{' '}
             <span>N°: {requestedDocument.number}</span>
