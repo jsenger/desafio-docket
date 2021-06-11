@@ -1,4 +1,5 @@
 export interface DocumentRequest {
+  id: number;
   documentName: string;
   typeOfPerson: string;
   cpf: string;

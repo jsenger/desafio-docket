@@ -4,16 +4,9 @@ import { Formik, Form, Field, ErrorMessage, FormikErrors } from 'formik';
 
 import { DocumentRequest } from '../../types';
 import { RequestContainer } from './styles';
+import { api } from '../../services/api';
 
 const DocumentRequestForm: React.FC = () => {
-  const [documentRequest, setDocumentRequest] = useState<DocumentRequest>(
-    {} as DocumentRequest
-  );
-
-  useEffect(() => {
-    documentRequest.typeOfPerson = 'Pessoa fisica';
-  }, []);
-
   return (
     <RequestContainer>
       <header>
@@ -21,6 +14,7 @@ const DocumentRequestForm: React.FC = () => {
       </header>
       <Formik
         initialValues={{
+          id: 0,
           documentName: '',
           typeOfPerson: 'Pessoa fisica',
           cpf: '',
@@ -68,14 +62,20 @@ const DocumentRequestForm: React.FC = () => {
 
           return errors;
         }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+        onSubmit={(documentRequest, { setSubmitting, resetForm }) => {
+          documentRequest.id = Math.floor(Math.random() * 10000);
+          
+          api
+            .post('documentRequests', documentRequest)
+            .then(() => {
+              alert('Documento criado com sucesso');
+              resetForm();
+            })
+            .catch(err => alert('Erro de conexão, tente novamente'))
+            .finally(() => setSubmitting(false));
         }}
       >
-        {({ values, errors, touched, handleChange }) => (
+        {({ values, errors, touched }) => (
           <Form>
             <div className="form-group">
               <label htmlFor="document-name">
@@ -121,10 +121,8 @@ const DocumentRequestForm: React.FC = () => {
 
             <div className="form-group">
               <label htmlFor="cpf">
-                {values.typeOfPerson === 'Pessoa fisica'
-                  ? 'CPF'
-                  : 'CNPJ'}
-                :<span>*</span>
+                {values.typeOfPerson === 'Pessoa fisica' ? 'CPF' : 'CNPJ'}:
+                <span>*</span>
               </label>
               <Field
                 name="cpf"
