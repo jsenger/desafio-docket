@@ -18,7 +18,7 @@ function App() {
     DocumentRequest[]
   >([{} as DocumentRequest]);
 
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const getRequestedDocuments = () => {
     setIsLoading(true);
@@ -47,7 +47,7 @@ function App() {
           'Carregando...'
         ) : (
           <section className="requestedDocuments">
-            {requestedDocuments.length > 1 ? (
+            {requestedDocuments.length ? (
               <>
                 <h2>{requestedDocuments.length} documentos solicitados</h2>
                 {}
