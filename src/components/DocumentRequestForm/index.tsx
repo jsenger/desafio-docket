@@ -64,7 +64,7 @@ const DocumentRequestForm: React.FC = () => {
         }}
         onSubmit={(documentRequest, { setSubmitting, resetForm }) => {
           documentRequest.id = Math.floor(Math.random() * 10000);
-          
+
           api
             .post('documentRequests', documentRequest)
             .then(() => {
@@ -75,7 +75,7 @@ const DocumentRequestForm: React.FC = () => {
             .finally(() => setSubmitting(false));
         }}
       >
-        {({ values, errors, touched }) => (
+        {({ values, errors, touched, isSubmitting }) => (
           <Form>
             <div className="form-group">
               <label htmlFor="document-name">
@@ -86,6 +86,7 @@ const DocumentRequestForm: React.FC = () => {
                 name="documentName"
                 id="document-name"
                 placeholder="Digite aqui"
+                disabled={isSubmitting}
                 className={
                   errors.documentName && touched.documentName
                     ? 'not-valid'
@@ -105,6 +106,7 @@ const DocumentRequestForm: React.FC = () => {
                 component="select"
                 name="typeOfPerson"
                 id="type-of-person"
+                disabled={isSubmitting}
                 className={
                   errors.typeOfPerson && touched.typeOfPerson
                     ? 'not-valid'
@@ -139,6 +141,7 @@ const DocumentRequestForm: React.FC = () => {
                     placeholder="Digite aqui"
                     type="text"
                     className={errors.cpf && touched.cpf ? 'not-valid' : null}
+                    disabled={isSubmitting}
                   />
                 )}
               />
@@ -154,6 +157,7 @@ const DocumentRequestForm: React.FC = () => {
                 name="fullName"
                 id="full-name"
                 placeholder="Digite aqui"
+                disabled={isSubmitting}
                 className={
                   errors.fullName && touched.fullName ? 'not-valid' : null
                 }
@@ -180,6 +184,7 @@ const DocumentRequestForm: React.FC = () => {
                     placeholder="Digite aqui"
                     type="text"
                     className={errors.cep && touched.cep ? 'not-valid' : null}
+                    disabled={isSubmitting}
                   />
                 )}
               />
@@ -196,6 +201,7 @@ const DocumentRequestForm: React.FC = () => {
                 id="street"
                 placeholder="Digite aqui"
                 className={errors.street && touched.street ? 'not-valid' : null}
+                disabled={isSubmitting}
               />
               {errors.street && touched.street ? (
                 <small>{errors.street}</small>
@@ -212,6 +218,7 @@ const DocumentRequestForm: React.FC = () => {
                 id="number"
                 placeholder="Digite aqui"
                 className={errors.number && touched.number ? 'not-valid' : null}
+                disabled={isSubmitting}
               />
               {errors.number && touched.number ? (
                 <small>{errors.number}</small>
@@ -228,6 +235,7 @@ const DocumentRequestForm: React.FC = () => {
                 id="city"
                 placeholder="Digite aqui"
                 className={errors.city && touched.city ? 'not-valid' : null}
+                disabled={isSubmitting}
               />
               {errors.city && touched.city ? (
                 <small>{errors.city}</small>
@@ -244,13 +252,16 @@ const DocumentRequestForm: React.FC = () => {
                 id="state"
                 placeholder="Digite aqui"
                 className={errors.state && touched.state ? 'not-valid' : null}
+                disabled={isSubmitting}
               />
               {errors.state && touched.state ? (
                 <small>{errors.state}</small>
               ) : null}
             </div>
 
-            <button type="submit">Criar documento</button>
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Criando...' : 'Criar documento'}
+            </button>
           </Form>
         )}
       </Formik>
