@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const RequestContainer = styled.section`
-  flex-grow: 1;
+  grid-column-start: 1;
+  grid-column-end: 2;
 
   form {
     padding: 1rem 2rem;

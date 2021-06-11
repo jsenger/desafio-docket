@@ -19,13 +19,24 @@ export const MainContainer = styled.main`
   }
 
   section {
-    background-color: var(--white);
+    &:not(.requestedDocuments) {
+      background-color: var(--white);
 
-    border-radius: 4px;
-    box-shadow: 0 1px 2px var(--black-100-transparency);
+      border-radius: 4px;
+      box-shadow: 0 1px 2px var(--black-100-transparency);
+    }
+
+    &.requestedDocuments {
+      grid-column-start: 2;
+      grid-column-end: 3;
+
+      & > h2 {
+        margin-bottom: 1rem;
+      }
+    }
 
     header {
-      border-bottom: 1.5px solid var(--cold-grey-40);
+      border-bottom: 1px solid var(--cold-grey-40);
       padding: 1rem 2rem;
     }
   }

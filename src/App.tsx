@@ -1,7 +1,7 @@
 import Navbar from './components/Navbar';
 import RequestInfoCard from './components/RequestInfoCard';
 import DocumentRequestForm from './components/DocumentRequestForm';
-import RequestedDocuments from './components/RequestedDocuments';
+import RequestedDocument from './components/RequestedDocument';
 import Footer from './components/Footer';
 
 import { GlobalStyle } from './styles/global';
@@ -15,7 +15,11 @@ function App() {
         <h1>Pedido #1</h1>
         <RequestInfoCard />
         <DocumentRequestForm />
-        <RequestedDocuments />
+        <section className="requestedDocuments">
+          <h2>2 documentos solicitados</h2>
+          <RequestedDocument />
+          <RequestedDocument />
+        </section>
       </MainContainer>
       <Footer />
       <GlobalStyle />
