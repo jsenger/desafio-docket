@@ -35,7 +35,12 @@ const RequestedDocument = ({
       <div className="card-info">
         <div>
           <h4>{requestedDocument.typeOfPerson}</h4>
-          <p>Nome: {requestedDocument.fullName}</p>
+          <p>
+            {requestedDocument.typeOfPerson === 'Pessoa física'
+              ? 'Nome'
+              : 'Razão social'}
+            : {requestedDocument.fullName}
+          </p>
           <p>CPF: {requestedDocument.cpf}</p>
         </div>
 

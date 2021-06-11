@@ -157,7 +157,10 @@ const DocumentRequestForm = ({
 
             <div className="form-group">
               <label htmlFor="full-name">
-                Nome Completo: <span>*</span>
+                {values.typeOfPerson === 'Pessoa física'
+                  ? 'Nome completo'
+                  : 'Razão social'}
+                : <span>*</span>
               </label>
               <Field
                 type="text"
