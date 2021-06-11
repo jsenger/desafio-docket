@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 
 import { GlobalStyle } from './styles/global';
 import { MainContainer } from './styles/MainContainer';
+import { IoDocumentTextOutline } from 'react-icons/io5';
 
 import { api } from './services/api';
 import { DocumentRequest } from './types';
@@ -46,7 +47,7 @@ function App() {
           'Carregando...'
         ) : (
           <section className="requestedDocuments">
-            {requestedDocuments.length ? (
+            {requestedDocuments.length > 1 ? (
               <>
                 <h2>{requestedDocuments.length} documentos solicitados</h2>
                 {}
@@ -59,7 +60,12 @@ function App() {
                 ))}
               </>
             ) : (
-              ''
+              <section className="no-document">
+                <div>
+                  <IoDocumentTextOutline />
+                </div>
+                <p>Nenhum documento criado</p>
+              </section>
             )}
           </section>
         )}

@@ -37,6 +37,27 @@ export const MainContainer = styled.main`
       }
     }
 
+    &.no-document {
+      text-align: center;
+      padding: 9rem 0;
+
+      color: var(--black60);
+
+      div {
+        display: inline-block;
+        margin-bottom: 1rem;
+
+        background-color: var(--cold-grey);
+        border-radius: 50%;
+        padding: 0.8rem 0.9rem;
+
+        svg {
+          font-size: 2rem;
+          color: var(--cold-grey-40);
+        }
+      }
+    }
+
     header {
       border-bottom: 1px solid var(--cold-grey-40);
       padding: 1rem 2rem;
