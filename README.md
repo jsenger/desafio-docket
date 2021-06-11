@@ -1,46 +1,81 @@
-# Getting Started with Create React App
+# Docket | Solicitação de documentos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Índice
 
-## Available Scripts
+- [Arquitetura de pastas](#arquitetura-de-pastas)
+- [Dependências](#dependências)
+- [Executar](#executar)
 
-In the project directory, you can run:
+## Arquitetura de pastas
 
-### `yarn start`
+```
+.
+├── public
+│   ├── index.html
+│   └── img
+│
+├── src
+│    ├── App.tsx
+│    ├── index.tsx
+│    │
+│    ├─── components
+│    │    ├── Navbar
+│    │    │   ├── index.tsx
+│    │    │   └── styles.ts
+│    │    ...
+│    │
+│    ├─── services
+│    │    └── api.ts
+│    │
+│    ├─── styles
+│    │    ├─── global.ts
+│    │    └─── MainContainer.ts
+│    │
+│    └─── types
+│         └─── index.ts
+│
+├── tsconfig.json
+├── package.json
+└── server.json
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Dependências
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Axios](https://axios-http.com/)
+- [styled-components](https://styled-components.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [Formik](https://formik.org/)
+- [react-input-mask](https://openbase.com/js/react-input-mask/documentation)
+- [JSON Server](https://www.npmjs.com/package/json-server#getting-started)
 
-### `yarn test`
+## Executar
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Clonar o repositório:
 
-### `yarn build`
+```
+git clone git@github.com:jsenger/desafio-docket.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Instalar dependências:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+yarn
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Compilar para desenvolvimento:
 
-### `yarn eject`
+```
+yarn start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Iniciar servidor:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+yarn server
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Compilar e minificar para produção:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+yarn build
+```
