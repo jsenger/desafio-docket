@@ -46,14 +46,21 @@ function App() {
           'Carregando...'
         ) : (
           <section className="requestedDocuments">
-            <h2>2 documentos solicitados</h2>
-            {requestedDocuments.map(requestedDocument => (
-              <RequestedDocument
-                key={requestedDocument.id}
-                requestedDocument={requestedDocument}
-                getRequestedDocuments={getRequestedDocuments}
-              />
-            ))}
+            {requestedDocuments.length ? (
+              <>
+                <h2>{requestedDocuments.length} documentos solicitados</h2>
+                {}
+                {requestedDocuments.map(requestedDocument => (
+                  <RequestedDocument
+                    key={requestedDocument.id}
+                    requestedDocument={requestedDocument}
+                    getRequestedDocuments={getRequestedDocuments}
+                  />
+                ))}
+              </>
+            ) : (
+              ''
+            )}
           </section>
         )}
       </MainContainer>
