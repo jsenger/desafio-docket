@@ -24,6 +24,8 @@ export const MainContainer = styled.main`
 
       border-radius: 4px;
       box-shadow: 0 1px 2px var(--black-100-transparency);
+
+      height: fit-content;
     }
 
     &.requestedDocuments {
