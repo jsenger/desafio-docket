@@ -12,6 +12,16 @@ export const RequestsContainer = styled.div`
     margin-bottom: 1rem;
   }
 
+  h3 {
+    display: inline-block;
+  }
+
+  header button {
+    border: none;color: var(--blue);
+    font-size: 1.3rem;
+    float: right;
+  }
+
   .card-info {
     margin: 1rem 2rem 0;
     padding-bottom: 1rem;

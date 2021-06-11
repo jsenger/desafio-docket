@@ -1,6 +1,9 @@
 import { DocumentRequest } from '../../types';
 import { RequestsContainer } from './styles';
 
+import { FiTrash } from 'react-icons/fi';
+import { api } from '../../services/api';
+
 interface RequestedDocumentsProps {
   requestedDocument: DocumentRequest;
   getRequestedDocuments: () => void;
@@ -14,6 +17,19 @@ const RequestedDocument = ({
     <RequestsContainer>
       <header>
         <h3>{requestedDocument.documentName}</h3>
+        <button
+          onClick={() => {
+            api
+              .delete(`documentRequests/${requestedDocument.id}`)
+              .then(() => {
+                alert('Solicitação excluída com sucesso.');
+                getRequestedDocuments();
+              })
+              .catch(err => alert('Erro de conexão, tente novamente'));
+          }}
+        >
+          <FiTrash />
+        </button>
       </header>
 
       <div className="card-info">
