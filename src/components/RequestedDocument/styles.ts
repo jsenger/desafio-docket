@@ -18,6 +18,7 @@ export const RequestsContainer = styled.div`
 
   header button {
     border: none;
+    background-color: transparent;
     color: var(--blue);
     font-size: 1.3rem;
     float: right;
