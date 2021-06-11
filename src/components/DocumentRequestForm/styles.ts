@@ -31,6 +31,14 @@ export const RequestContainer = styled.section`
         &::placeholder {
           color: var(--black20-disable-);
         }
+
+        &.not-valid {
+          border-color: var(--red);
+        }
+
+        & + small {
+          color: var(--red);
+        }
       }
 
       &.select {
